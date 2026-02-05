@@ -66,8 +66,8 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   // Handle invalid problem
   if (!problem) {
     return (
-      <div className="w-full max-w-6xl mx-auto py-8 px-6">
-        <div className="bg-secondary border border-color rounded-md p-8 text-center">
+      <div className="w-full max-w-6xl">
+        <div className="bg-secondary border border-color rounded-md text-center">
           <h1 className="text-2xl font-bold text-primary mb-4">
             Problem Not Found
           </h1>
@@ -96,13 +96,13 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
 
   return (
     <div
-      className="w-full px-6"
+      className="w-full"
       style={{
         display: 'grid',
         gridTemplateRows: 'auto 1fr auto',
         height: '100vh',
-        paddingTop: 'var(--space-8)',
-        paddingBottom: 'var(--space-8)',
+        paddingTop: '',
+        paddingBottom: '',
         gap: 'var(--space-4)',
       }}
     >

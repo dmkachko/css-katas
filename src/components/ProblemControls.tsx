@@ -6,41 +6,47 @@ export const ProblemControls: React.FC = () => {
   const setPaneVisibility = useStore((state) => state.setPaneVisibility);
 
   return (
-    <div className="flex gap-2 flex-wrap">
+    <div className="flex gap-4 items-center">
       <button
         onClick={() => setPaneVisibility('code', !paneVisibility.code)}
-        className="px-4 py-2 bg-secondary border border-color rounded-md text-secondary font-medium cursor-pointer transition"
+        className="text-secondary text-sm cursor-pointer transition"
         title={paneVisibility.code ? 'Hide code editor' : 'Show code editor'}
         style={{
           transition: 'all var(--transition-base)',
-          opacity: paneVisibility.code ? 1 : 0.6,
+          opacity: paneVisibility.code ? 1 : 0.5,
+          background: 'none',
+          border: 'none',
+          padding: '4px',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border-hover)';
+          e.currentTarget.style.color = 'var(--color-text-primary)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border)';
+          e.currentTarget.style.color = 'var(--color-text-secondary)';
         }}
       >
-        {paneVisibility.code ? '👁 Code' : '👁‍🗨 Code'}
+        {paneVisibility.code ? '👁' : '👁‍🗨'} Code
       </button>
 
       <button
         onClick={() => setPaneVisibility('preview', !paneVisibility.preview)}
-        className="px-4 py-2 bg-secondary border border-color rounded-md text-secondary font-medium cursor-pointer transition"
+        className="text-secondary text-sm cursor-pointer transition"
         title={paneVisibility.preview ? 'Hide preview' : 'Show preview'}
         style={{
           transition: 'all var(--transition-base)',
-          opacity: paneVisibility.preview ? 1 : 0.6,
+          opacity: paneVisibility.preview ? 1 : 0.5,
+          background: 'none',
+          border: 'none',
+          padding: '4px',
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border-hover)';
+          e.currentTarget.style.color = 'var(--color-text-primary)';
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border)';
+          e.currentTarget.style.color = 'var(--color-text-secondary)';
         }}
       >
-        {paneVisibility.preview ? '👁 Preview' : '👁‍🗨 Preview'}
+        {paneVisibility.preview ? '👁' : '👁‍🗨'} Preview
       </button>
     </div>
   );

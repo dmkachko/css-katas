@@ -67,18 +67,21 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         </h1>
 
         {/* Right: Instructions + View Controls */}
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-4 items-center">
           <button
             onClick={() => setShowInstructions(!showInstructions)}
-            className="px-3 py-2 bg-accent border border-color rounded-md text-secondary text-sm font-medium cursor-pointer transition"
+            className="text-secondary text-sm cursor-pointer transition"
             style={{
               transition: 'all var(--transition-base)',
+              background: 'none',
+              border: 'none',
+              padding: '4px',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'var(--color-border-hover)';
+              e.currentTarget.style.color = 'var(--color-text-primary)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'var(--color-border)';
+              e.currentTarget.style.color = 'var(--color-text-secondary)';
             }}
           >
             {showInstructions ? '▼' : '▶'} Instructions
