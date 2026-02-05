@@ -137,6 +137,18 @@
   margin-top: var(--space-4);
 }
 
+.mt-6 {
+  margin-top: var(--space-6);
+}
+
+.mt-8 {
+  margin-top: var(--space-8);
+}
+
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+
 /* Typography */
 .text-sm {
   font-size: 0.875rem;
