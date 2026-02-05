@@ -37,7 +37,7 @@ export const ProblemNav: React.FC<ProblemNavProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-between mt-8 p-4 bg-secondary border border-color rounded-md">
+    <div className="flex items-center justify-between p-4 bg-secondary border border-color rounded-md">
       <button
         onClick={goToPrevious}
         disabled={!hasPrevious}

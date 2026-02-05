@@ -14,10 +14,9 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
   const showCode = paneVisibility.code;
   const showPreview = paneVisibility.preview;
 
-  // Calculate height: full viewport minus header, controls, nav, and padding
   const containerStyle = {
-    height: 'calc(100vh - 400px)',
-    minHeight: '500px',
+    height: '100%',
+    minHeight: '400px',
   };
 
   // If both hidden, show both (fallback)

@@ -14,7 +14,7 @@ export const ProblemControls: React.FC = () => {
   };
 
   return (
-    <div className="flex gap-2 mb-4 flex-wrap">
+    <div className="flex gap-2 flex-wrap">
       <button
         onClick={toggleLayout}
         className="px-4 py-2 bg-secondary border border-color rounded-md text-secondary font-medium cursor-pointer transition"

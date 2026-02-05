@@ -35,7 +35,7 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
   };
 
   return (
-    <div className="bg-secondary border border-color rounded-md p-6 mb-4">
+    <div className="bg-secondary border border-color rounded-md p-6">
       <div className="flex items-start justify-between mb-4">
         <button
           onClick={() => setLocation('/')}
