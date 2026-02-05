@@ -18,6 +18,8 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   topicId,
   problemId,
 }) => {
+  console.log('[ProblemView] Render', { topicId, problemId });
+
   const [, setLocation] = useLocation();
   const getCurrentProblemCSS = useStore((state) => state.getCurrentProblemCSS);
   const setCurrentProblemCSS = useStore((state) => state.setCurrentProblemCSS);
@@ -32,33 +34,43 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   // Initialize CSS from store or use initial CSS from loaded files
   const [css, setCss] = useState<string>('');
 
+  console.log('[ProblemView] State', { html: html.length, css: css.length, loading });
+
   // Load problem files when component mounts or problem changes
   useEffect(() => {
+    console.log('[ProblemView] Load files effect triggered', { problemId, topicId });
+
     if (!problem || !problemData) {
+      console.log('[ProblemView] No problem data, setting loading false');
       setLoading(false);
       return;
     }
 
+    console.log('[ProblemView] Loading problem files...');
     setLoading(true);
     loadProblemFiles(problemData.topicId, problemId)
       .then((files) => {
+        console.log('[ProblemView] Files loaded', { htmlLen: files.html.length, cssLen: files.css.length });
         setHtml(files.html);
         setInitialCSS(files.css);
 
         // Check if there's stored CSS, otherwise use loaded initial CSS
         const storedCSS = getCurrentProblemCSS(topicId, problemId);
+        console.log('[ProblemView] Setting CSS', { hasStored: !!storedCSS });
         setCss(storedCSS || files.css);
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Failed to load problem files:', error);
+        console.error('[ProblemView] Failed to load problem files:', error);
         setLoading(false);
       });
   }, [problemId, topicId, problem, problemData, getCurrentProblemCSS]);
 
   // Save CSS to store only when unmounting or changing problems
   useEffect(() => {
+    console.log('[ProblemView] Cleanup effect registered');
     return () => {
+      console.log('[ProblemView] Cleanup running - saving CSS to store', { cssLen: css.length });
       if (css) {
         setCurrentProblemCSS(topicId, problemId, css);
       }
@@ -117,7 +129,15 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
       />
 
       <SplitPane
-        codePane={<CodeEditor value={css} onChange={setCss} />}
+        codePane={
+          <CodeEditor
+            value={css}
+            onChange={(newCss) => {
+              console.log('[ProblemView] CSS changed', { oldLen: css.length, newLen: newCss.length });
+              setCss(newCss);
+            }}
+          />
+        }
         previewPane={<PreviewPane html={html} css={css} />}
       />
 
