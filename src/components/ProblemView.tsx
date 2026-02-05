@@ -66,7 +66,7 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
 
   return (
     <div
-      className="w-full max-w-6xl mx-auto px-6"
+      className="w-full px-6"
       style={{
         display: 'grid',
         gridTemplateRows: 'auto auto 1fr auto',
