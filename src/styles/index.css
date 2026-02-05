@@ -1,0 +1,20 @@
+/* Design System Variables (non-theme) */
+@import './variables.css';
+
+/* Theme-specific Variables */
+@import './themes.css';
+
+/* Style System (utilities, reset) */
+@import './system/index.css';
+
+/* Base styles */
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+#root {
+  min-height: 100vh;
+}

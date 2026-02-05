@@ -1,0 +1,31 @@
+/* Theme-specific color overrides */
+/* Light theme uses the defaults from variables.css, so no overrides needed */
+:root[data-theme='light'] {
+  /* All light theme colors are already set as defaults in variables.css */
+}
+
+/* Dark theme overrides */
+:root[data-theme='dark'] {
+  /* Background colors */
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-accent: #334155;
+
+  /* Text colors */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+
+  /* Border colors */
+  --color-border: #334155;
+  --color-border-hover: #475569;
+
+  /* Brand colors */
+  --color-primary: #60a5fa;
+  --color-primary-hover: #3b82f6;
+
+  /* Progress colors */
+  --color-progress-bg: #334155;
+  --color-progress-fill: #60a5fa;
+  --color-progress-complete: #4ade80;
+}
