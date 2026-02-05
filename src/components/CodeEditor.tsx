@@ -17,7 +17,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({ value, onChange }) => {
       <CodeMirror
         value={value}
         height="100%"
-        minHeight="400px"
         extensions={[css()]}
         theme={theme === 'dark' ? oneDark : 'light'}
         onChange={onChange}

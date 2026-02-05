@@ -14,12 +14,18 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
   const showCode = paneVisibility.code;
   const showPreview = paneVisibility.preview;
 
+  // Calculate height: full viewport minus header, controls, nav, and padding
+  const containerStyle = {
+    height: 'calc(100vh - 400px)',
+    minHeight: '500px',
+  };
+
   // If both hidden, show both (fallback)
   if (!showCode && !showPreview) {
     return (
       <div
         className={`flex gap-4 ${isHorizontal ? 'flex-row' : 'flex-col'}`}
-        style={{ height: '600px' }}
+        style={containerStyle}
       >
         <div className="flex-1">{codePane}</div>
         <div className="flex-1">{previewPane}</div>
@@ -29,19 +35,19 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
 
   // Only code visible
   if (showCode && !showPreview) {
-    return <div style={{ height: '600px' }}>{codePane}</div>;
+    return <div style={containerStyle}>{codePane}</div>;
   }
 
   // Only preview visible
   if (!showCode && showPreview) {
-    return <div style={{ height: '600px' }}>{previewPane}</div>;
+    return <div style={containerStyle}>{previewPane}</div>;
   }
 
   // Both visible
   return (
     <div
       className={`flex gap-4 ${isHorizontal ? 'flex-row' : 'flex-col'}`}
-      style={{ height: '600px' }}
+      style={containerStyle}
     >
       <div className="flex-1">{codePane}</div>
       <div className="flex-1">{previewPane}</div>

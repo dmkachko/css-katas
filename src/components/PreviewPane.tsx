@@ -46,7 +46,7 @@ export const PreviewPane: React.FC<PreviewPaneProps> = ({ html, css }) => {
         title="Preview"
         sandbox="allow-same-origin"
         className="w-full h-full"
-        style={{ border: 'none', minHeight: '400px' }}
+        style={{ border: 'none' }}
       />
     </div>
   );

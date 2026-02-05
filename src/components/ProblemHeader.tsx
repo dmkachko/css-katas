@@ -18,6 +18,7 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
   instructions,
 }) => {
   const [, setLocation] = useLocation();
+  const [showInstructions, setShowInstructions] = React.useState(false);
   const completedProblems = useStore((state) => state.completedProblems);
   const markProblemComplete = useStore((state) => state.markProblemComplete);
   const markProblemIncomplete = useStore((state) => state.markProblemIncomplete);
@@ -72,10 +73,29 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
 
       <h1 className="text-2xl font-bold text-primary mb-2">{title}</h1>
       <p className="text-base text-secondary mb-3">{description}</p>
-      <div className="p-4 bg-accent rounded-md border border-color">
-        <p className="text-sm font-medium text-secondary mb-1">Instructions:</p>
-        <p className="text-sm text-secondary">{instructions}</p>
-      </div>
+
+      <button
+        onClick={() => setShowInstructions(!showInstructions)}
+        className="px-4 py-2 bg-accent border border-color rounded-md text-secondary font-medium cursor-pointer transition mb-2"
+        style={{
+          transition: 'all var(--transition-base)',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.borderColor = 'var(--color-border-hover)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.borderColor = 'var(--color-border)';
+        }}
+      >
+        {showInstructions ? '▼ Hide Instructions' : '▶ Show Instructions'}
+      </button>
+
+      {showInstructions && (
+        <div className="p-4 bg-accent rounded-md border border-color mt-2">
+          <p className="text-sm font-medium text-secondary mb-1">Instructions:</p>
+          <p className="text-sm text-secondary">{instructions}</p>
+        </div>
+      )}
     </div>
   );
 };
