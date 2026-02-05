@@ -42,21 +42,9 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         {/* Left: Back button (icon only, link style) */}
         <button
           onClick={() => setLocation('/')}
-          className="text-secondary cursor-pointer transition"
-          style={{
-            transition: 'all var(--transition-base)',
-            fontSize: '20px',
-            background: 'none',
-            border: 'none',
-            padding: '4px',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = 'var(--color-text-primary)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = 'var(--color-text-secondary)';
-          }}
+          className="link-button"
           title="Back to Topics"
+          style={{ fontSize: '20px' }}
         >
           ←
         </button>
@@ -70,19 +58,7 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         <div className="flex gap-4 items-center">
           <button
             onClick={() => setShowInstructions(!showInstructions)}
-            className="text-secondary text-sm cursor-pointer transition"
-            style={{
-              transition: 'all var(--transition-base)',
-              background: 'none',
-              border: 'none',
-              padding: '4px',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'var(--color-text-primary)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = 'var(--color-text-secondary)';
-            }}
+            className="link-button text-sm"
           >
             {showInstructions ? '▼' : '▶'} Instructions
           </button>

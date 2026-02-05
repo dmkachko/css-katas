@@ -9,42 +9,18 @@ export const ProblemControls: React.FC = () => {
     <div className="flex gap-4 items-center">
       <button
         onClick={() => setPaneVisibility('code', !paneVisibility.code)}
-        className="text-secondary text-sm cursor-pointer transition"
+        className="link-button text-sm"
         title={paneVisibility.code ? 'Hide code editor' : 'Show code editor'}
-        style={{
-          transition: 'all var(--transition-base)',
-          opacity: paneVisibility.code ? 1 : 0.5,
-          background: 'none',
-          border: 'none',
-          padding: '4px',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = 'var(--color-text-primary)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = 'var(--color-text-secondary)';
-        }}
+        style={{ opacity: paneVisibility.code ? 1 : 0.5 }}
       >
         {paneVisibility.code ? '👁' : '👁‍🗨'} Code
       </button>
 
       <button
         onClick={() => setPaneVisibility('preview', !paneVisibility.preview)}
-        className="text-secondary text-sm cursor-pointer transition"
+        className="link-button text-sm"
         title={paneVisibility.preview ? 'Hide preview' : 'Show preview'}
-        style={{
-          transition: 'all var(--transition-base)',
-          opacity: paneVisibility.preview ? 1 : 0.5,
-          background: 'none',
-          border: 'none',
-          padding: '4px',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.color = 'var(--color-text-primary)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.color = 'var(--color-text-secondary)';
-        }}
+        style={{ opacity: paneVisibility.preview ? 1 : 0.5 }}
       >
         {paneVisibility.preview ? '👁' : '👁‍🗨'} Preview
       </button>
