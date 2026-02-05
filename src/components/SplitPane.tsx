@@ -7,10 +7,8 @@ interface SplitPaneProps {
 }
 
 export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) => {
-  const layoutPreference = useStore((state) => state.layoutPreference);
   const paneVisibility = useStore((state) => state.paneVisibility);
 
-  const isHorizontal = layoutPreference === 'horizontal';
   const showCode = paneVisibility.code;
   const showPreview = paneVisibility.preview;
 
@@ -22,10 +20,7 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
   // If both hidden, show both (fallback)
   if (!showCode && !showPreview) {
     return (
-      <div
-        className={`flex gap-4 ${isHorizontal ? 'flex-row' : 'flex-col'}`}
-        style={containerStyle}
-      >
+      <div className="flex flex-col gap-4" style={containerStyle}>
         <div className="flex-1">{codePane}</div>
         <div className="flex-1">{previewPane}</div>
       </div>
@@ -42,12 +37,9 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
     return <div style={containerStyle}>{previewPane}</div>;
   }
 
-  // Both visible
+  // Both visible - always vertical layout
   return (
-    <div
-      className={`flex gap-4 ${isHorizontal ? 'flex-row' : 'flex-col'}`}
-      style={containerStyle}
-    >
+    <div className="flex flex-col gap-4" style={containerStyle}>
       <div className="flex-1">{codePane}</div>
       <div className="flex-1">{previewPane}</div>
     </div>
