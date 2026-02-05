@@ -69,13 +69,16 @@
 
 ---
 
-### TC1.6: Click Topic to Enter
+### TC1.6: Click Topic to Enter (Stub)
 **Given** I am viewing the topic list
 **When** I click on a topic
 **Then** I should navigate to that topic's problem-solving interface
 
 **Test Data:** Click "Flexbox Basics" topic
-**Expected:** Navigate to Flexbox Basics problem view
+**Expected (User Story 1):** Topic click is handled (console log or placeholder)
+**Expected (User Story 2):** Navigate to Flexbox Basics problem view
+
+**Note:** Full navigation/routing implemented in User Story 2. User Story 1 implements the click handler hook point.
 
 ---
 
