@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'wouter';
 import { useStore } from '../store/useStore';
 import { ProblemControls } from './ProblemControls';
+import { ThemeToggle } from './ThemeToggle';
 
 interface ProblemHeaderProps {
   topicId: string;
@@ -54,7 +55,7 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
           {title}
         </h1>
 
-        {/* Right: Instructions + View Controls */}
+        {/* Right: Instructions + View Controls + Theme */}
         <div className="flex gap-4 items-center">
           <button
             onClick={() => setShowInstructions(!showInstructions)}
@@ -64,6 +65,8 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
           </button>
 
           <ProblemControls />
+
+          <ThemeToggle />
         </div>
       </div>
 

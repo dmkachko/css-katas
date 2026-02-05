@@ -5,6 +5,7 @@ import { useStore } from '../store/useStore';
 import { calculateTopicProgress } from '../utils/progress';
 import { TopicCard } from './TopicCard';
 import { EmptyState } from './EmptyState';
+import { ThemeToggle } from './ThemeToggle';
 
 export const TopicList: React.FC = () => {
   const completedProblems = useStore((state) => state.completedProblems);
@@ -25,7 +26,10 @@ export const TopicList: React.FC = () => {
   return (
     <div className="w-full max-w-4xl mx-auto py-8 px-6">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold text-primary mb-2">CSS Katas</h1>
+        <div className="flex items-center justify-between mb-2">
+          <h1 className="text-3xl font-bold text-primary">CSS Katas</h1>
+          <ThemeToggle />
+        </div>
         <p className="text-lg text-secondary">
           Master CSS through interactive exercises
         </p>
