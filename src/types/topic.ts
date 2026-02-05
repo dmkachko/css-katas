@@ -1,3 +1,5 @@
+import type { Problem } from './problem';
+
 export interface Topic {
   id: string;
   title: string;

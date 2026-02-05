@@ -28,7 +28,6 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   const problem = problemData?.problem;
 
   const [html, setHtml] = useState<string>('');
-  const [initialCSS, setInitialCSS] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   // Initialize CSS from store or use initial CSS from loaded files
@@ -58,7 +57,6 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
       .then((files) => {
         console.log('[ProblemView] Files loaded', { htmlLen: files.html.length, cssLen: files.css.length });
         setHtml(files.html);
-        setInitialCSS(files.css);
 
         // Check if there's stored CSS, otherwise use loaded initial CSS
         const storedCSS = getCurrentProblemCSS(topicId, problemId);
