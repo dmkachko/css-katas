@@ -20,20 +20,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className="p-6 bg-secondary border border-color rounded-lg shadow-sm cursor-pointer transition"
-      style={{
-        transition: 'all var(--transition-base)',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'var(--color-border-hover)';
-        e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.boxShadow = 'var(--shadow-md)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'var(--color-border)';
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
-      }}
+      className="topic-card p-6 bg-secondary border border-color rounded-lg shadow-sm cursor-pointer"
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {

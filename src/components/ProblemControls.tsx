@@ -9,18 +9,16 @@ export const ProblemControls: React.FC = () => {
     <div className="flex gap-4 items-center">
       <button
         onClick={() => setPaneVisibility('code', !paneVisibility.code)}
-        className="link-button text-sm"
+        className={`link-button text-sm ${!paneVisibility.code ? 'opacity-50' : ''}`}
         title={paneVisibility.code ? 'Hide code editor' : 'Show code editor'}
-        style={{ opacity: paneVisibility.code ? 1 : 0.5 }}
       >
         {paneVisibility.code ? '👁' : '👁‍🗨'} Code
       </button>
 
       <button
         onClick={() => setPaneVisibility('preview', !paneVisibility.preview)}
-        className="link-button text-sm"
+        className={`link-button text-sm ${!paneVisibility.preview ? 'opacity-50' : ''}`}
         title={paneVisibility.preview ? 'Hide preview' : 'Show preview'}
-        style={{ opacity: paneVisibility.preview ? 1 : 0.5 }}
       >
         {paneVisibility.preview ? '👁' : '👁‍🗨'} Preview
       </button>

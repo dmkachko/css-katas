@@ -24,33 +24,41 @@ export const TopicList: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto py-8 px-6">
-      <header className="mb-8">
-        <div className="flex items-center justify-between mb-2">
-          <h1 className="text-3xl font-bold text-primary">CSS Katas</h1>
-          <ThemeToggle />
+    <div className="w-full grid-layout-page">
+      {/* Fixed Header */}
+      <header className="bg-secondary border-b border-color p-6">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="flex items-center justify-between mb-2">
+            <h1 className="text-3xl font-bold text-primary">CSS Katas</h1>
+            <ThemeToggle />
+          </div>
+          <p className="text-lg text-secondary">
+            Master CSS through interactive exercises
+          </p>
         </div>
-        <p className="text-lg text-secondary">
-          Master CSS through interactive exercises
-        </p>
       </header>
 
-      <div className="flex flex-col gap-4">
-        {topics.map((topic) => {
-          const progress = calculateTopicProgress(
-            topic,
-            completedProblems[topic.id] || []
-          );
+      {/* Scrollable Body */}
+      <div className="overflow-auto">
+        <div className="w-full max-w-4xl mx-auto p-6">
+          <div className="flex flex-col gap-4">
+            {topics.map((topic) => {
+              const progress = calculateTopicProgress(
+                topic,
+                completedProblems[topic.id] || []
+              );
 
-          return (
-            <TopicCard
-              key={topic.id}
-              topic={topic}
-              progress={progress}
-              onClick={() => handleTopicClick(topic.id)}
-            />
-          );
-        })}
+              return (
+                <TopicCard
+                  key={topic.id}
+                  topic={topic}
+                  progress={progress}
+                  onClick={() => handleTopicClick(topic.id)}
+                />
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

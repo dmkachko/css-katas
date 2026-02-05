@@ -118,17 +118,7 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   }
 
   return (
-    <div
-      className="w-full"
-      style={{
-        display: 'grid',
-        gridTemplateRows: 'auto 1fr auto',
-        height: '100vh',
-        paddingTop: '',
-        paddingBottom: '',
-        gap: 'var(--space-4)',
-      }}
-    >
+    <div className="w-full grid-layout-problem">
       <ProblemHeader
         topicId={topicId}
         problemId={problemId}

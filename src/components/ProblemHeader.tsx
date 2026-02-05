@@ -43,9 +43,8 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         {/* Left: Back button (icon only, link style) */}
         <button
           onClick={() => setLocation('/')}
-          className="link-button"
+          className="link-button text-xl"
           title="Back to Topics"
-          style={{ fontSize: '20px' }}
         >
           ←
         </button>
@@ -75,8 +74,7 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         <p className="text-sm text-secondary">{description}</p>
         <button
           onClick={handleToggleComplete}
-          className="link-button text-sm font-bold"
-          style={{ textDecoration: 'underline' }}
+          className="link-button text-sm font-bold underline"
         >
           {isComplete ? '✓ Completed' : '✓ Mark as Complete'}
         </button>

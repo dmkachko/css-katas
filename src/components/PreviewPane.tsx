@@ -45,8 +45,7 @@ export const PreviewPane: React.FC<PreviewPaneProps> = ({ html, css }) => {
         ref={iframeRef}
         title="Preview"
         sandbox="allow-same-origin"
-        className="w-full h-full"
-        style={{ border: 'none' }}
+        className="w-full h-full border-none"
       />
     </div>
   );

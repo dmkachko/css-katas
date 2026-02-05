@@ -11,8 +11,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
 }) => {
   return (
     <div
-      className="w-full bg-secondary rounded-full overflow-hidden"
-      style={{ height: '8px' }}
+      className="w-full h-2 bg-secondary rounded-full overflow-hidden"
       role="progressbar"
       aria-valuenow={percent}
       aria-valuemin={0}

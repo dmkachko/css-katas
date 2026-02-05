@@ -47,17 +47,6 @@ export const ProblemNav: React.FC<ProblemNavProps> = ({
             ? 'bg-accent border border-color text-primary cursor-pointer'
             : 'bg-accent border border-color text-muted cursor-not-allowed opacity-50'
         }`}
-        style={{
-          transition: 'all var(--transition-base)',
-        }}
-        onMouseEnter={(e) => {
-          if (hasPrevious) {
-            e.currentTarget.style.borderColor = 'var(--color-border-hover)';
-          }
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border)';
-        }}
       >
         ← Previous
       </button>
@@ -74,17 +63,6 @@ export const ProblemNav: React.FC<ProblemNavProps> = ({
             ? 'bg-accent border border-color text-primary cursor-pointer'
             : 'bg-accent border border-color text-muted cursor-not-allowed opacity-50'
         }`}
-        style={{
-          transition: 'all var(--transition-base)',
-        }}
-        onMouseEnter={(e) => {
-          if (hasNext) {
-            e.currentTarget.style.borderColor = 'var(--color-border-hover)';
-          }
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border)';
-        }}
       >
         Next →
       </button>

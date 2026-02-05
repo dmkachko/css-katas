@@ -71,9 +71,93 @@ Define colors and theme values with CSS variables:
 - Group related utilities in CSS files
 - Use CSS nesting if helpful for organization
 
+## Inline Styles vs Utility Classes
+
+**CRITICAL RULE**: Do NOT use `style` attribute for styling. Use CSS classes.
+
+### When to Use Utility Classes (ALWAYS)
+✅ Static values that don't change:
+```tsx
+// ❌ BAD
+<div style={{ fontSize: '20px' }}>Text</div>
+
+// ✅ GOOD
+<div className="text-xl">Text</div>
+```
+
+✅ Conditional styling:
+```tsx
+// ❌ BAD
+<div style={{ opacity: isActive ? 1 : 0.5 }}>
+
+// ✅ GOOD
+<div className={isActive ? '' : 'opacity-50'}>
+```
+
+✅ Hover states and transitions:
+```tsx
+// ❌ BAD - using mouse handlers
+onMouseEnter={(e) => e.currentTarget.style.color = 'blue'}
+
+// ✅ GOOD - use CSS
+.link-button:hover { color: blue; }
+```
+
+### When Inline Styles Are Acceptable (RARE)
+Only use inline styles for **truly dynamic runtime values**:
+```tsx
+// ✅ OK - dynamic percentage from state/props
+<div style={{ width: `${progress}%` }} />
+
+// ✅ OK - dynamic color from props/API
+<div style={{ backgroundColor: userSelectedColor }} />
+
+// ❌ NOT OK - static layout values, use CSS class instead
+<div style={{ gridTemplateRows: 'auto 1fr auto' }} />  // BAD
+
+// ✅ GOOD - create CSS class
+.grid-layout { display: grid; grid-template-rows: auto 1fr auto; }
+<div className="grid-layout" />  // GOOD
+```
+
+**Rule of thumb**: If the value is known at build time or is a fixed layout pattern, it belongs in a CSS class, NOT inline style.
+
+### Creating Missing Utilities
+If you need a style that doesn't have a utility class:
+1. **First**: Add the utility class to `utilities.css`
+2. **Then**: Use the class in your component
+
+```css
+/* utilities.css */
+.opacity-50 { opacity: 0.5; }
+.underline { text-decoration: underline; }
+```
+
+### Migration Process
+When you find inline styles in code:
+1. Check if a utility class exists
+2. If not, create the utility class or component class
+3. Replace the inline style with the class
+4. Remove any mouse handlers if using CSS hover
+
+### Summary: Use `style` Attribute ONLY For:
+✅ Dynamic percentages: `width: ${value}%`
+✅ User-selected colors from props/API
+✅ Runtime-calculated positions
+
+❌ **NEVER use `style` for:**
+- Layout patterns (grid, flex arrangements)
+- Fixed spacing, sizing, colors
+- Static typography values
+- Border, border-radius, shadows
+- Transitions, transforms
+- Anything that can be a CSS class
+
 ## Don'ts
 - ❌ Don't install full Tailwind CSS
-- ❌ Don't use inline styles (except for truly dynamic values)
+- ❌ Don't use `style` attribute for styling (use CSS classes)
+- ❌ Don't use inline styles for layouts or static values
+- ❌ Don't use mouse handlers for hover effects (use CSS :hover)
 - ❌ Don't use `!important` (fix specificity instead)
 - ❌ Don't create utilities you don't need yet
 - ❌ Don't use external CSS frameworks

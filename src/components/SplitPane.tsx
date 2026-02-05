@@ -7,41 +7,16 @@ interface SplitPaneProps {
 }
 
 export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) => {
-  const paneVisibility = useStore((state) => state.paneVisibility);
+  const { code, preview } = useStore((state) => state.paneVisibility);
 
-  const showCode = paneVisibility.code;
-  const showPreview = paneVisibility.preview;
+  // Fallback: show both if both are hidden
+  const showCode = code || (!code && !preview);
+  const showPreview = preview || (!code && !preview);
 
-  const containerStyle = {
-    height: '100%',
-    minHeight: '400px',
-  };
-
-  // If both hidden, show both (fallback)
-  if (!showCode && !showPreview) {
-    return (
-      <div className="flex flex-row gap-4" style={containerStyle}>
-        <div className="flex-1">{codePane}</div>
-        <div className="flex-1">{previewPane}</div>
-      </div>
-    );
-  }
-
-  // Only code visible
-  if (showCode && !showPreview) {
-    return <div style={containerStyle}>{codePane}</div>;
-  }
-
-  // Only preview visible
-  if (!showCode && showPreview) {
-    return <div style={containerStyle}>{previewPane}</div>;
-  }
-
-  // Both visible - always vertical layout
   return (
-    <div className="flex flex-row gap-4 px-4" style={containerStyle}>
-      <div className="flex-1">{codePane}</div>
-      <div className="flex-1">{previewPane}</div>
+    <div className="split-pane-container flex flex-row gap-4 px-4">
+      {showCode && <div className="flex-1">{codePane}</div>}
+      {showPreview && <div className="flex-1">{previewPane}</div>}
     </div>
   );
 };

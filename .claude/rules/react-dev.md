@@ -95,11 +95,54 @@ export const Button: React.FC<ButtonProps> = ({
   import { useTheme } from '@/hooks/useTheme';
   ```
 
+## Code Simplicity
+
+**CRITICAL**: Keep code simple. Don't over-engineer.
+
+### Conditional Rendering
+✅ **GOOD - Simple and clear:**
+```tsx
+const showCode = code || (!code && !preview);
+return (
+  <div className="fixed-layout">
+    {showCode && <div>{content}</div>}
+  </div>
+);
+```
+
+❌ **BAD - Over-engineered:**
+```tsx
+// Too many variables
+const bothHidden = !code && !preview;
+const bothVisible = code && preview || bothHidden;
+const shouldUseFlex = bothVisible;
+
+// Dynamic classes
+<div className={shouldUseFlex ? 'flex' : ''}>
+
+// Complex conditional rendering
+{(code || bothHidden) && <div className={bothVisible ? 'flex-1' : ''}>{content}</div>}
+```
+
+### Rules:
+1. **Use fixed layouts** - Don't dynamically change classes unless truly necessary
+2. **Simple booleans** - One or two variables max for show/hide logic
+3. **Avoid "clever" code** - Straightforward is better than elegant-but-complex
+4. **One level of conditional** - Prefer `{show && <div>}` over nested ternaries
+5. **No dynamic class logic** - If you find yourself with `className={condition ? 'a' : 'b'}` often, use fixed layout + show/hide instead
+
+### When Complexity is OK:
+- Truly dynamic data (API responses, user input)
+- Multiple distinct states with different layouts
+- NOT for simple show/hide scenarios
+
 ## React-Specific Don'ts
 - ❌ Don't use class components
 - ❌ Don't use Redux (we're using Zustand)
 - ❌ Don't use inline styles (except for truly dynamic values)
 - ❌ Don't install external UI frameworks (Material-UI, Chakra, etc.)
+- ❌ Don't over-engineer simple conditional rendering
+- ❌ Don't use multiple if/return statements when one return with && works
 
 ## Testing Considerations
 - Components should be testable (pure, single responsibility)
