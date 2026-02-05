@@ -3,7 +3,6 @@ import { useLocation } from 'wouter';
 import { getProblem } from '../config/problems';
 import { useStore } from '../store/useStore';
 import { ProblemHeader } from './ProblemHeader';
-import { ProblemControls } from './ProblemControls';
 import { SplitPane } from './SplitPane';
 import { CodeEditor } from './CodeEditor';
 import { PreviewPane } from './PreviewPane';
@@ -69,7 +68,7 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
       className="w-full px-6"
       style={{
         display: 'grid',
-        gridTemplateRows: 'auto auto 1fr auto',
+        gridTemplateRows: 'auto 1fr auto',
         height: '100vh',
         paddingTop: 'var(--space-8)',
         paddingBottom: 'var(--space-8)',
@@ -83,8 +82,6 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
         description={problem.description}
         instructions={problem.instructions}
       />
-
-      <ProblemControls />
 
       <SplitPane
         codePane={<CodeEditor value={css} onChange={setCss} />}

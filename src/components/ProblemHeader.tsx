@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'wouter';
 import { useStore } from '../store/useStore';
+import { ProblemControls } from './ProblemControls';
 
 interface ProblemHeaderProps {
   topicId: string;
@@ -74,21 +75,25 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
       <h1 className="text-2xl font-bold text-primary mb-2">{title}</h1>
       <p className="text-base text-secondary mb-3">{description}</p>
 
-      <button
-        onClick={() => setShowInstructions(!showInstructions)}
-        className="px-4 py-2 bg-accent border border-color rounded-md text-secondary font-medium cursor-pointer transition mb-2"
-        style={{
-          transition: 'all var(--transition-base)',
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border-hover)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.borderColor = 'var(--color-border)';
-        }}
-      >
-        {showInstructions ? '▼ Hide Instructions' : '▶ Show Instructions'}
-      </button>
+      <div className="flex items-center justify-between gap-4 flex-wrap mb-2">
+        <button
+          onClick={() => setShowInstructions(!showInstructions)}
+          className="px-4 py-2 bg-accent border border-color rounded-md text-secondary font-medium cursor-pointer transition"
+          style={{
+            transition: 'all var(--transition-base)',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'var(--color-border-hover)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'var(--color-border)';
+          }}
+        >
+          {showInstructions ? '▼ Hide Instructions' : '▶ Show Instructions'}
+        </button>
+
+        <ProblemControls />
+      </div>
 
       {showInstructions && (
         <div className="p-4 bg-accent rounded-md border border-color mt-2">
