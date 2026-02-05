@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { getProblem } from '../config/topics';
 import { loadProblemFiles } from '../utils/problemLoader';
@@ -33,6 +33,12 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
 
   // Initialize CSS from store or use initial CSS from loaded files
   const [css, setCss] = useState<string>('');
+  const cssRef = useRef<string>(css);
+
+  // Keep ref updated with latest CSS
+  useEffect(() => {
+    cssRef.current = css;
+  }, [css]);
 
   console.log('[ProblemView] State', { html: html.length, css: css.length, loading });
 
@@ -64,18 +70,21 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
         console.error('[ProblemView] Failed to load problem files:', error);
         setLoading(false);
       });
-  }, [problemId, topicId, problem, problemData, getCurrentProblemCSS]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [problemId, topicId]); // Only re-run when problem ID or topic ID changes
 
   // Save CSS to store only when unmounting or changing problems
   useEffect(() => {
     console.log('[ProblemView] Cleanup effect registered');
     return () => {
-      console.log('[ProblemView] Cleanup running - saving CSS to store', { cssLen: css.length });
-      if (css) {
-        setCurrentProblemCSS(topicId, problemId, css);
+      const currentCSS = cssRef.current;
+      console.log('[ProblemView] Cleanup running - saving CSS to store', { cssLen: currentCSS.length });
+      if (currentCSS) {
+        setCurrentProblemCSS(topicId, problemId, currentCSS);
       }
     };
-  }, [css, topicId, problemId, setCurrentProblemCSS]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [topicId, problemId]); // Only re-register when problem changes
 
   // Handle invalid problem
   if (!problem) {
