@@ -67,9 +67,16 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
         </div>
       </div>
 
-      {/* Second row: Description */}
-      <div className="px-4 pb-3">
+      {/* Second row: Description + Mark Complete */}
+      <div className="px-4 pb-3 flex items-center gap-4">
         <p className="text-sm text-secondary">{description}</p>
+        <button
+          onClick={handleToggleComplete}
+          className="link-button text-sm font-bold"
+          style={{ textDecoration: 'underline' }}
+        >
+          {isComplete ? '✓ Completed' : '✓ Mark as Complete'}
+        </button>
       </div>
 
       {/* Instructions panel */}
@@ -79,26 +86,6 @@ export const ProblemHeader: React.FC<ProblemHeaderProps> = ({
           <p className="text-sm text-secondary">{instructions}</p>
         </div>
       )}
-
-      {/* Mark complete button (moved to bottom of header) */}
-      <div className="px-4 pb-4">
-        <button
-          onClick={handleToggleComplete}
-          className={`px-4 py-2 rounded-md font-medium cursor-pointer transition text-sm ${
-            isComplete
-              ? 'bg-accent border border-color text-secondary'
-              : 'border-2 text-primary'
-          }`}
-          style={{
-            borderColor: isComplete
-              ? 'var(--color-border)'
-              : 'var(--color-progress-complete)',
-            transition: 'all var(--transition-base)',
-          }}
-        >
-          {isComplete ? '✓ Completed' : 'Mark as Complete'}
-        </button>
-      </div>
     </div>
   );
 };
