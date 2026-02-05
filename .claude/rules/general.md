@@ -58,6 +58,39 @@ Before implementing a user story, review all test cases for:
 - Test across both light and dark themes
 - Verify keyboard navigation and accessibility
 
+## Workflow & Approval Process
+
+### Before Committing Changes
+**CRITICAL**: Always wait for user testing and approval before committing:
+
+1. **Present the fix/change** - Show what you're about to change and why
+2. **Wait for user to test** - Let them verify the fix works in the browser
+3. **Get explicit approval** - Wait for user to say "commit" or "looks good"
+4. **Then commit** - Only after approval, create the commit
+5. **Never auto-push** - Never push to remote without explicit user request
+
+### If a Fix is Wrong
+- If user reports the fix doesn't work, immediately stop
+- Add logging/debugging to understand the problem
+- Present the new approach before implementing
+- Don't stack broken fixes on top of each other
+
+### Example Good Workflow
+```
+Assistant: "Here's what I'll change to fix X... [shows code]"
+User: [tests in browser]
+User: "works now, commit it"
+Assistant: [commits]
+```
+
+### Example Bad Workflow (DON'T DO THIS)
+```
+Assistant: [makes change, commits, pushes immediately]
+User: "this is broken"
+Assistant: [makes another change, commits, pushes]
+User: "still broken, why are you committing without testing?"
+```
+
 ## Code Quality
 
 ### Naming Conventions
