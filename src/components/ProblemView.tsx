@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
-import { getProblem } from '../config/problems';
+import { getProblem } from '../config/topics';
+import { loadProblemFiles } from '../utils/problemLoader';
 import { useStore } from '../store/useStore';
 import { ProblemHeader } from './ProblemHeader';
 import { SplitPane } from './SplitPane';
@@ -21,25 +22,46 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
   const getCurrentProblemCSS = useStore((state) => state.getCurrentProblemCSS);
   const setCurrentProblemCSS = useStore((state) => state.setCurrentProblemCSS);
 
-  const problem = getProblem(problemId);
+  const problemData = getProblem(problemId);
+  const problem = problemData?.problem;
 
-  // Initialize CSS from store or use initial CSS from problem
-  const [css, setCss] = useState<string>(() => {
-    const storedCSS = getCurrentProblemCSS(topicId, problemId);
-    return storedCSS || problem?.initialCSS || '';
-  });
+  const [html, setHtml] = useState<string>('');
+  const [initialCSS, setInitialCSS] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(true);
+
+  // Initialize CSS from store or use initial CSS from loaded files
+  const [css, setCss] = useState<string>('');
+
+  // Load problem files when component mounts or problem changes
+  useEffect(() => {
+    if (!problem || !problemData) {
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    loadProblemFiles(problemData.topicId, problemId)
+      .then((files) => {
+        setHtml(files.html);
+        setInitialCSS(files.css);
+
+        // Check if there's stored CSS, otherwise use loaded initial CSS
+        const storedCSS = getCurrentProblemCSS(topicId, problemId);
+        setCss(storedCSS || files.css);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Failed to load problem files:', error);
+        setLoading(false);
+      });
+  }, [problemId, topicId, problem, problemData, getCurrentProblemCSS]);
 
   // Update CSS in store when it changes
   useEffect(() => {
-    setCurrentProblemCSS(topicId, problemId, css);
+    if (css) {
+      setCurrentProblemCSS(topicId, problemId, css);
+    }
   }, [css, topicId, problemId, setCurrentProblemCSS]);
-
-  // Reset CSS when problem changes
-  useEffect(() => {
-    const storedCSS = getCurrentProblemCSS(topicId, problemId);
-    const newCSS = storedCSS || problem?.initialCSS || '';
-    setCss(newCSS);
-  }, [topicId, problemId, problem, getCurrentProblemCSS]);
 
   // Handle invalid problem
   if (!problem) {
@@ -59,6 +81,15 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
             Back to Topics
           </button>
         </div>
+      </div>
+    );
+  }
+
+  // Show loading state while files are being fetched
+  if (loading) {
+    return (
+      <div className="w-full px-6 py-8 text-center">
+        <p className="text-secondary">Loading problem...</p>
       </div>
     );
   }
@@ -85,7 +116,7 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
 
       <SplitPane
         codePane={<CodeEditor value={css} onChange={setCss} />}
-        previewPane={<PreviewPane html={problem.initialHTML} css={css} />}
+        previewPane={<PreviewPane html={html} css={css} />}
       />
 
       <ProblemNav topicId={topicId} problemId={problemId} />

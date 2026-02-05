@@ -1,0 +1,18 @@
+.container {
+  width: 100%;
+  background: #f0f0f0;
+  border: 2px solid #333;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.item {
+  background: #2196F3;
+  color: white;
+  padding: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}

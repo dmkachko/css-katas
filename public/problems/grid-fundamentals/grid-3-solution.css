@@ -1,0 +1,23 @@
+.container {
+  width: 100%;
+  background: #f0f0f0;
+  border: 2px solid #333;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.item {
+  background: #2196F3;
+  color: white;
+  padding: 30px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.wide {
+  background: #FF9800;
+  grid-column: span 2;
+}

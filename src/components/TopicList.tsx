@@ -16,8 +16,8 @@ export const TopicList: React.FC = () => {
 
   const handleTopicClick = (topicId: string) => {
     const topic = topics.find((t) => t.id === topicId);
-    if (topic && topic.problemIds.length > 0) {
-      const firstProblemId = topic.problemIds[0];
+    if (topic && topic.problems.length > 0) {
+      const firstProblemId = topic.problems[0].id;
       setLocation(`/topic/${topicId}/${firstProblemId}`);
     }
   };

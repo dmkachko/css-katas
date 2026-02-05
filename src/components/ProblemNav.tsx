@@ -16,22 +16,23 @@ export const ProblemNav: React.FC<ProblemNavProps> = ({
   const topic = topics.find((t) => t.id === topicId);
   if (!topic) return null;
 
-  const currentIndex = topic.problemIds.indexOf(problemId);
-  const totalProblems = topic.problemIds.length;
+  const problemIds = topic.problems.map((p) => p.id);
+  const currentIndex = problemIds.indexOf(problemId);
+  const totalProblems = topic.problems.length;
 
   const hasPrevious = currentIndex > 0;
   const hasNext = currentIndex < totalProblems - 1;
 
   const goToPrevious = () => {
     if (hasPrevious) {
-      const previousProblemId = topic.problemIds[currentIndex - 1];
+      const previousProblemId = problemIds[currentIndex - 1];
       setLocation(`/topic/${topicId}/${previousProblemId}`);
     }
   };
 
   const goToNext = () => {
     if (hasNext) {
-      const nextProblemId = topic.problemIds[currentIndex + 1];
+      const nextProblemId = problemIds[currentIndex + 1];
       setLocation(`/topic/${topicId}/${nextProblemId}`);
     }
   };

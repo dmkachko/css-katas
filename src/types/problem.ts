@@ -1,12 +1,10 @@
 export interface Problem {
   id: string;
-  topicId: string;
   title: string;
   description: string;
   instructions: string;
-  initialHTML: string;
-  initialCSS?: string;
-  solutionCSS?: string;
+  // Files loaded dynamically from public/problems/{topicId}/{id}.html
+  // Optional solution file: {id}-solution.css
 }
 
 export type LayoutMode = 'horizontal' | 'vertical';

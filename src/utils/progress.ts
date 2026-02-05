@@ -4,9 +4,10 @@ export function calculateTopicProgress(
   topic: Topic,
   completedProblemIds: string[]
 ): TopicProgress {
-  const totalProblems = topic.problemIds.length;
+  const totalProblems = topic.problems.length;
+  const problemIds = topic.problems.map((p) => p.id);
   const completed = completedProblemIds.filter((id) =>
-    topic.problemIds.includes(id)
+    problemIds.includes(id)
   ).length;
   const percentComplete = totalProblems > 0 ? (completed / totalProblems) * 100 : 0;
 
