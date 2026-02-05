@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+}
+
+.input {
+    border: 2px solid #d1d5db;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    /* Add flex property here to grow */
+}
+
+.input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+.button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    white-space: nowrap;
+    /* Add flex property here to stay fixed */
+}
+
+.button:hover {
+    background: #2563eb;
+}

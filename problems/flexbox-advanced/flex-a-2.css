@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    /* Add display and flex-direction properties here */
+}
+
+.card-header {
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-header h3 {
+    color: #1f2937;
+}
+
+.card-body {
+    padding: 20px;
+    color: #6b7280;
+    /* Add flex property here to absorb extra space */
+}
+
+.card-footer {
+    padding: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.card-footer button {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}

@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.split-container {
+    display: flex;
+    gap: 20px;
+    height: 400px;
+}
+
+.left-pane {
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    padding: 20px;
+    /* Add flex, min-width, and max-width properties here */
+}
+
+.right-pane {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+    border-radius: 8px;
+    padding: 20px;
+    /* Add flex and min-width properties here */
+}
+
+h2, h3 {
+    margin-bottom: 10px;
+}

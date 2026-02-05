@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    height: 400px;
+    background: #1f2937;
+    border-radius: 8px;
+    /* Add display and flex-direction properties here */
+}
+
+.sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #374151;
+}
+
+.sidebar-header h3 {
+    color: white;
+}
+
+.sidebar-content {
+    padding: 10px;
+    /* Add flex and overflow properties here */
+}
+
+.menu-item {
+    padding: 12px 15px;
+    color: #d1d5db;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background: #374151;
+}
+
+.sidebar-footer {
+    padding: 15px;
+    border-top: 1px solid #374151;
+}
+
+.sidebar-footer button {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}

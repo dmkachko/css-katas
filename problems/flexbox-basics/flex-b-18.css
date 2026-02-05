@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.media {
+    background: #f9fafb;
+    border: 2px solid #d1d5db;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    /* Add flex-direction for row (desktop) */
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    background: #6366f1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    flex-shrink: 0;
+}
+
+.details h3 {
+    margin-bottom: 8px;
+    color: #1f2937;
+}
+
+.details p {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+/* Add media query here for mobile (max-width: 600px) with flex-direction: column */

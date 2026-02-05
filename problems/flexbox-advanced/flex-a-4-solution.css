@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    max-width: 500px;
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.content p {
+    color: #1f2937;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.actions button {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}

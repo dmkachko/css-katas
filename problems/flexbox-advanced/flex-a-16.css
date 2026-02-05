@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.card-header {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    background: #f3f4f6;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+}
+
+.title-section {
+    /* Add flex and min-width properties here */
+}
+
+.title {
+    font-size: 16px;
+    color: #1f2937;
+    /* Add line-clamp properties here for 2 lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    /* Add flex property here */
+}
+
+.actions button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}

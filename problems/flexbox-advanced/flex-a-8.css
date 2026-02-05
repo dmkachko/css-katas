@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #1e293b;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.brand {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar a {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.spacer {
+    /* Add flex property here */
+}
+
+.navbar button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}

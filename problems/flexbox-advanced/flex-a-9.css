@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.media-object {
+    display: flex;
+    gap: 15px;
+    max-width: 400px;
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    /* Add flex properties here */
+}
+
+.text-content {
+    /* Add flex and min-width properties here */
+}
+
+.text-content h3 {
+    color: #1f2937;
+    margin-bottom: 8px;
+}
+
+.text-content p {
+    color: #6b7280;
+    line-height: 1.5;
+}
