@@ -56,15 +56,13 @@ export const ProblemView: React.FC<ProblemViewProps> = ({
       });
   }, [problemId, topicId, problem, problemData, getCurrentProblemCSS]);
 
-  // Update CSS in store when it changes (debounced to prevent excessive updates)
+  // Save CSS to store only when unmounting or changing problems
   useEffect(() => {
-    if (!css) return;
-
-    const timeoutId = setTimeout(() => {
-      setCurrentProblemCSS(topicId, problemId, css);
-    }, 500); // Debounce 500ms
-
-    return () => clearTimeout(timeoutId);
+    return () => {
+      if (css) {
+        setCurrentProblemCSS(topicId, problemId, css);
+      }
+    };
   }, [css, topicId, problemId, setCurrentProblemCSS]);
 
   // Handle invalid problem
