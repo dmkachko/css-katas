@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.message {
+    max-width: 300px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.badge {
+    background: #ef4444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    /* Add flex-shrink property here */
+}
+
+.text {
+    color: #374151;
+    font-size: 14px;
+}

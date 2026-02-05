@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.notification {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    max-width: 400px;
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.icon {
+    font-size: 24px;
+    /* Add flex-shrink property here */
+}
+
+.content {
+    /* Add flex and min-width properties here */
+}
+
+.text {
+    color: #1f2937;
+    /* Add truncation properties here */
+}
+
+.badge {
+    background: #ef4444;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 24px;
+    text-align: center;
+    /* Add flex-shrink property here */
+}

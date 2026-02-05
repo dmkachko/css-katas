@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    background: #dbeafe;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.item {
+    background: #3b82f6;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.item-3 {
+    background: #ef4444;
+    order: -1;
+}

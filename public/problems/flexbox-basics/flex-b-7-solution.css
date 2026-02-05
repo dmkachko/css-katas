@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.price-container {
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+}
+
+.currency {
+    font-size: 24px;
+    font-weight: 600;
+    color: #059669;
+}
+
+.amount {
+    font-size: 48px;
+    font-weight: bold;
+    color: #059669;
+}
+
+.period {
+    font-size: 16px;
+    color: #6b7280;
+}

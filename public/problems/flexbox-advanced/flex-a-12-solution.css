@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: #1f2937;
+    color: white;
+    padding: 20px;
+}
+
+.app-main {
+    background: #f9fafb;
+    padding: 20px;
+    flex: 1;
+    overflow: auto;
+}
+
+.app-main p {
+    margin-bottom: 10px;
+}
+
+.app-footer {
+    background: #1f2937;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+}

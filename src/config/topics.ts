@@ -1,42 +1,5 @@
 import type { Topic, Problem } from '../types';
-
-const flexboxProblems: Problem[] = [
-  {
-    id: 'flex-1',
-    title: 'Center an Element',
-    description: 'Use Flexbox to center a box both horizontally and vertically',
-    instructions:
-      'Apply display: flex to the container and use justify-content and align-items properties to center the child element.',
-  },
-  {
-    id: 'flex-2',
-    title: 'Space Between Items',
-    description: 'Distribute items evenly with space-between',
-    instructions:
-      'Use display: flex and justify-content: space-between to evenly distribute the items across the container.',
-  },
-  {
-    id: 'flex-3',
-    title: 'Flex Direction Column',
-    description: 'Stack items vertically using flex-direction',
-    instructions:
-      'Apply display: flex and flex-direction: column to stack the items vertically. Add gap: 10px for spacing.',
-  },
-  {
-    id: 'flex-4',
-    title: 'Align Items',
-    description: 'Align items along the cross axis',
-    instructions:
-      'Use display: flex and align-items to align items to the flex-end (bottom) of the container.',
-  },
-  {
-    id: 'flex-5',
-    title: 'Flex Wrap',
-    description: 'Allow items to wrap to the next line',
-    instructions:
-      'Use display: flex and flex-wrap: wrap to allow items to wrap when they run out of space.',
-  },
-];
+import {flexboxAdvancedKatas, flexboxBasicsKatas} from "./flex.ts";
 
 const gridProblems: Problem[] = [
   {
@@ -138,7 +101,13 @@ export const topics: Topic[] = [
     id: 'flexbox-basics',
     title: 'Flexbox Basics',
     description: 'Learn the fundamentals of CSS Flexbox layout',
-    problems: flexboxProblems,
+    problems: flexboxBasicsKatas,
+  },
+  {
+    id: 'flexbox-advanced',
+    title: 'Flexbox Advanced',
+    description: 'Master advanced CSS Flexbox techniques and patterns',
+    problems: flexboxAdvancedKatas,
   },
   {
     id: 'grid-fundamentals',

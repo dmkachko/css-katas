@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: #1f2937;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.left {
+    /* Add flex property here */
+}
+
+.left button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.center {
+    /* Add flex and text-align properties here */
+}
+
+.center h1 {
+    color: white;
+    font-size: 18px;
+}
+
+.right {
+    display: flex;
+    gap: 8px;
+    /* Add flex property here */
+}
+
+.right button {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
