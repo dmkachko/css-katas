@@ -15,7 +15,7 @@ export interface ProblemFiles {
  * @returns Promise resolving to problem files
  */
 export async function loadProblemFiles(topicId: string, problemId: string): Promise<ProblemFiles> {
-  const basePath = `/problems/${topicId}`;
+  const basePath = `${import.meta.env.BASE_URL}problems/${topicId}`;
 
   const [html, css, solutionCSS] = await Promise.all([
     fetch(`${basePath}/${problemId}.html`).then((r) => (r.ok ? r.text() : '')),
@@ -30,7 +30,7 @@ export async function loadProblemFiles(topicId: string, problemId: string): Prom
  * Loads HTML file for a problem
  */
 export async function loadProblemHTML(topicId: string, problemId: string): Promise<string> {
-  const response = await fetch(`/problems/${topicId}/${problemId}.html`);
+  const response = await fetch(`${import.meta.env.BASE_URL}problems/${topicId}/${problemId}.html`);
   return response.ok ? response.text() : '';
 }
 
@@ -38,7 +38,7 @@ export async function loadProblemHTML(topicId: string, problemId: string): Promi
  * Loads CSS file for a problem
  */
 export async function loadProblemCSS(topicId: string, problemId: string): Promise<string> {
-  const response = await fetch(`/problems/${topicId}/${problemId}.css`);
+  const response = await fetch(`${import.meta.env.BASE_URL}problems/${topicId}/${problemId}.css`);
   return response.ok ? response.text() : '';
 }
 
@@ -46,6 +46,6 @@ export async function loadProblemCSS(topicId: string, problemId: string): Promis
  * Loads solution CSS file for a problem (if exists)
  */
 export async function loadProblemSolution(topicId: string, problemId: string): Promise<string | undefined> {
-  const response = await fetch(`/problems/${topicId}/${problemId}-solution.css`);
+  const response = await fetch(`${import.meta.env.BASE_URL}problems/${topicId}/${problemId}-solution.css`);
   return response.ok ? response.text() : undefined;
 }
