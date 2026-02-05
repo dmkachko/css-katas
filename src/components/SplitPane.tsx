@@ -20,7 +20,7 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
   // If both hidden, show both (fallback)
   if (!showCode && !showPreview) {
     return (
-      <div className="flex flex-col gap-4" style={containerStyle}>
+      <div className="flex flex-row gap-4" style={containerStyle}>
         <div className="flex-1">{codePane}</div>
         <div className="flex-1">{previewPane}</div>
       </div>
@@ -39,7 +39,7 @@ export const SplitPane: React.FC<SplitPaneProps> = ({ codePane, previewPane }) =
 
   // Both visible - always vertical layout
   return (
-    <div className="flex flex-col gap-4" style={containerStyle}>
+    <div className="flex flex-row gap-4" style={containerStyle}>
       <div className="flex-1">{codePane}</div>
       <div className="flex-1">{previewPane}</div>
     </div>
