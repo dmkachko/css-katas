@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'wouter';
 import { topics } from '../config/topics';
 import { useStore } from '../store/useStore';
 import { calculateTopicProgress } from '../utils/progress';
@@ -7,14 +8,18 @@ import { EmptyState } from './EmptyState';
 
 export const TopicList: React.FC = () => {
   const completedProblems = useStore((state) => state.completedProblems);
+  const [, setLocation] = useLocation();
 
   if (topics.length === 0) {
     return <EmptyState />;
   }
 
   const handleTopicClick = (topicId: string) => {
-    console.log('Topic clicked:', topicId);
-    // Navigation will be implemented in User Story 2
+    const topic = topics.find((t) => t.id === topicId);
+    if (topic && topic.problemIds.length > 0) {
+      const firstProblemId = topic.problemIds[0];
+      setLocation(`/topic/${topicId}/${firstProblemId}`);
+    }
   };
 
   return (
