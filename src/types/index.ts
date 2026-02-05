@@ -1,5 +1,6 @@
 export type { Topic } from './topic';
 export type { TopicProgress, ProgressStore } from './progress';
+export type { Problem, LayoutMode, PaneVisibility } from './problem';
 
 export type Theme = 'light' | 'dark';
 
