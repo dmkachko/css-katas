@@ -23,20 +23,12 @@ export const topics: Topic[] = [
     id: 'responsive-design',
     title: 'Responsive Design',
     description: 'Create layouts that work on all screen sizes',
-    problemIds: [
-      'resp-1',
-      'resp-2',
-      'resp-3',
-      'resp-4',
-      'resp-5',
-      'resp-6',
-      'resp-7',
-    ],
+    problemIds: ['resp-1'], // More problems to be added
   },
   {
     id: 'animations',
     title: 'CSS Animations',
     description: 'Add motion and transitions to your interfaces',
-    problemIds: ['anim-1', 'anim-2', 'anim-3'],
+    problemIds: ['anim-1'], // More problems to be added
   },
 ];
